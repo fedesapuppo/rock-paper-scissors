@@ -21,7 +21,10 @@
 
         function playerPlay(){
         let playerSelection = prompt("Choose your weapon!");
-        return playerSelection.toLowerCase();
+        while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors"){
+            playerSelection = prompt("You chose an invalid weapon, please type: rock, paper, or scissors");
+            }
+            return playerSelection.toLowerCase();
         }
 
         function playRound(){
