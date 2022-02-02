@@ -8,7 +8,7 @@
 
     <script>
 
-        function computerPlay(){
+        function getComputerPlay(){
             let computerSelection = Math.floor(Math.random() * 3) + 1;
             if (computerSelection === 1){
                 return "rock";
@@ -19,7 +19,7 @@
             }
         }
 
-        function playerPlay(){
+        function getPlayerPlay(){
         let playerSelection = prompt("Choose your weapon!");
         while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors"){
             playerSelection = prompt("You chose an invalid weapon, please type: rock, paper, or scissors");
@@ -28,8 +28,8 @@
         }
 
         function playRound(){
-            let computerSelection = computerPlay();
-            let playerSelection = playerPlay();
+            let computerSelection = getComputerPlay();
+            let playerSelection = getPlayerPlay();
             if (computerSelection === playerSelection){
                 return "You chose the same weapon. It's a tie!!";
             } else if (computerSelection === "rock" && playerSelection === "paper"){
@@ -47,7 +47,7 @@
             }
         }
 
-        function game(){
+        function playGame(){
             let playerScore = 0;
             let computerScore = 0;
 
@@ -94,7 +94,7 @@
 <p>
     1) Open the devtools's console in your browser by pressing Ctrl + Shift + K
     <br><br>
-    2) Tipe game() and press the enter key
+    2) Tipe playGame() and press the enter key
     <br><br>
     3) Choose your weapon by typing rock, paper or scissors and pressing the enter key
     <br><br>
