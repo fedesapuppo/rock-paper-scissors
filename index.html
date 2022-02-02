@@ -30,17 +30,17 @@
             if (computerSelection === playerSelection){
                 return "You chose the same weapon. It's a tie!!";
             } else if (computerSelection === "rock" && playerSelection === "paper"){
-                return "You won!! paper beats rock";
+                return "You won!! the computer picked rock, and paper beats rock";
             } else if (computerSelection === "rock" && playerSelection === "scissors"){
-                return "You loose!! rock beats scissors";
+                return "You loose!! the computer picked rock, and rock beats scissors";
             } else if (computerSelection === "scissors" && playerSelection === "rock"){
-                return "You won!! rock beats scissors";
+                return "You won!! the computer picked scissors, and rock beats scissors";
             } else if (computerSelection === "scissors" && playerSelection === "paper"){
-                return "You loose!! scissors beats paper";
+                return "You loose!! the computer picked scissors, and scissors beats paper";
             } else if (computerSelection === "paper" && playerSelection === "rock"){
-                return "You loose!! paper beats rock";
+                return "You loose!! the computer picked paper, and paper beats rock";
             } else if (computerSelection === "paper" && playerSelection === "scissors"){
-                return "You won!! scissors beats paper";
+                return "You won!! the computer picked paper, and scissors beats paper";
             }
         }
 
@@ -82,5 +82,21 @@
 </head>
 <body>
     
+<h1>
+    Rock - Paper - Scissors
+</h1>
+<h2>
+    Game's Instructions
+</h2>
+<p>
+    1) Open the devtools's console in your browser by pressing Ctrl + Shift + K
+    <br><br>
+    2) Tipe game() and press the enter key
+    <br><br>
+    3) Choose your weapon by typing rock, paper or scissors and pressing the enter key
+    <br><br>
+    4) After four rounds, you'll get the final result of the game in the console
+</p>
+
 </body>
 </html>
