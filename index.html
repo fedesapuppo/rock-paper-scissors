@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+
+    <script>
+
+        function computerPlay(){
+            let computerSelection = Math.floor(Math.random() * 3) + 1;
+            if (computerSelection === 1){
+                return "rock";
+            } else if (computerSelection === 2){
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+
+        function playerPlay(){
+        let playerSelection = prompt("Choose your weapon!");
+        return playerSelection.toLowerCase();
+        }
+
+        function playRound(){
+            let computerSelection = computerPlay();
+            let playerSelection = playerPlay();
+            if (computerSelection === playerSelection){
+                return "It's a tie!!";
+            } else if (computerSelection === "rock" && playerSelection === "paper"){
+                return "You won!! paper beats rock";
+            } else if (computerSelection === "rock" && playerSelection === "scissors"){
+                return "You loose!! rock beats scissors";
+            } else if (computerSelection === "scissors" && playerSelection === "rock"){
+                return "You won!! rock beats scissors";
+            } else if (computerSelection === "scissors" && playerSelection === "paper"){
+                return "You loose!! scissors beats paper";
+            } else if (computerSelection === "paper" && playerSelection === "rock"){
+                return "You loose!! paper beats rock";
+            } else if (computerSelection === "paper" && playerSelection === "scissors"){
+                return "You won!! scissors beats paper";
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
