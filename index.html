@@ -19,87 +19,83 @@
             }
         }
 
-        function getPlayerPlay(){
-        let playerSelection = prompt("Choose your weapon!");
-        while (playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors"){
-            playerSelection = prompt("You chose an invalid weapon, please type: rock, paper, or scissors");
-            }
-            return playerSelection.toLowerCase();
-        }
+        let playerCounter = 0;
+        let computerCounter = 0;
 
-        function playRound(){
+        function playRound(playerSelection){
             let computerSelection = getComputerPlay();
-            let playerSelection = getPlayerPlay();
-            if (computerSelection === playerSelection){
-                return "You chose the same weapon. It's a tie!!";
-            } else if (computerSelection === "rock" && playerSelection === "paper"){
-                return "You won!! the computer picked rock, and paper beats rock";
-            } else if (computerSelection === "rock" && playerSelection === "scissors"){
-                return "You loose!! the computer picked rock, and rock beats scissors";
-            } else if (computerSelection === "scissors" && playerSelection === "rock"){
-                return "You won!! the computer picked scissors, and rock beats scissors";
-            } else if (computerSelection === "scissors" && playerSelection === "paper"){
-                return "You loose!! the computer picked scissors, and scissors beats paper";
-            } else if (computerSelection === "paper" && playerSelection === "rock"){
-                return "You loose!! the computer picked paper, and paper beats rock";
-            } else if (computerSelection === "paper" && playerSelection === "scissors"){
-                return "You won!! the computer picked paper, and scissors beats paper";
-            }
-        }
 
-        function playGame(){
-            let playerScore = 0;
-            let computerScore = 0;
-
-            for (let i = 0; i < 5; i++) {
- 
-                let roundResult = playRound();
-                alert(roundResult);
-                     if (roundResult.slice(0, 7) === "You won"){
-                        playerScore += 1;
-                    } else if (roundResult.slice(0, 9) === "You loose"){
-                        computerScore += 1;
-                    }
-
-            }
-
-            if (computerScore > playerScore){
-                return `You loose the game!!\n
-                        Computer Score: ${computerScore}\n
-                        Player Score: ${playerScore}`
-            } else if (playerScore > computerScore){
-                return `You won the game!!\n
-                        Computer Score: ${computerScore}\n
-                        Player Score: ${playerScore}`
-            } else {
-                return `It's a tie!!
-                        Computer Score: ${computerScore}\n
-                        Player Score: ${playerScore}`
-            }
+            const playerScore = document.getElementById("playerScore");
+            const computerScore = document.getElementById("computerScore");
             
+            if (playerCounter === 5){
+                alert("The game is over! YOU WON!!");
+            } else if (computerCounter === 5){
+                alert("The game is over! YOU LOST!!");
+            } else if (computerSelection === playerSelection){
+                alert( 'You chose the same weapon. It is a tie!!');
+            } else if (computerSelection === "rock" && playerSelection === "paper"){
+                alert( 'You won!! the computer picked rock, and paper beats rock');
+                playerCounter += 1;
+                if (playerCounter === 5){
+                alert("The game is over! YOU WON!!");}
+            } else if (computerSelection === "rock" && playerSelection === "scissors"){
+                alert( 'You loose!! the computer picked rock, and rock beats scissors');
+                computerCounter += 1;
+                if (computerCounter === 5){
+                alert("The game is over! YOU LOST!!");} 
+            } else if (computerSelection === "scissors" && playerSelection === "rock"){
+                alert( 'You won!! the computer picked scissors, and rock beats scissors');
+                playerCounter += 1;
+                if (playerCounter === 5){
+                alert("The game is over! YOU WON!!");}
+            } else if (computerSelection === "scissors" && playerSelection === "paper"){
+                alert( 'You loose!! the computer picked scissors, and scissors beats paper');
+                computerCounter += 1;
+                if (computerCounter === 5){
+                alert("The game is over! YOU LOST!!");}
+            } else if (computerSelection === "paper" && playerSelection === "rock"){
+                alert( 'You loose!! the computer picked paper, and paper beats rock');
+                computerCounter += 1;
+                if (computerCounter === 5){
+                alert("The game is over! YOU LOST!!");}
+            } else if (computerSelection === "paper" && playerSelection === "scissors"){
+                alert( 'You won!! the computer picked paper, and scissors beats paper');
+                playerCounter += 1;
+                if (playerCounter === 5){
+                alert("The game is over! YOU WON!!");}
+            }
+
+            playerScore.textContent = `Player Score: ${playerCounter}`;
+            computerScore.textContent = `Computer Score: ${computerCounter}`;
         }
 
-    </script>
-
-
+</script>
 </head>
+
+
 <body>
     
 <h1>
     Rock - Paper - Scissors
 </h1>
+
 <h2>
-    Game's Instructions
+    Choose yor weapon!!
 </h2>
-<p>
-    1) Open the devtools's console in your browser by pressing Ctrl + Shift + K
-    <br><br>
-    2) Tipe playGame() and press the enter key
-    <br><br>
-    3) Choose your weapon by typing rock, paper or scissors and pressing the enter key
-    <br><br>
-    4) After five rounds, you'll get the final result of the game in the console
-</p>
+
+<button onclick="playRound('rock')">Rock</button>
+
+<button onclick="playRound('paper')">Paper</button>
+
+<button onclick="playRound('scissors')">Scissors</button>
+
+<div id="score">
+        <br>
+    <span id="playerScore">Player Score: 0</span>
+        <br>
+    <span id="computerScore">Computer Score: 0</span>
+</div>
 
 </body>
 </html>
