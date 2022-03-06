@@ -2,4 +2,4 @@
 
 A Rock-Paper-Scissors game
 
-https://github.com/fedesapuppo/rock-paper-scissors
+https://fedesapuppo.github.io/rock-paper-scissors/
